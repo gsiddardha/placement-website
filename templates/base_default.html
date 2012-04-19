@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block topbar %}
+    <div class="topbar-inner">
+        <div class="container-fluid">
+            <a class="brand" href="#">{{SITE_NAME}}</a>
+            <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            {% if user.is_authenticated %}
+                <p class="pull-right">Logged in as <a href="{{SITE_URL}}/students/profile/">{{user.username}}</a>.
+                <a href="{{SITE_URL}}/students/logout/">[Logout]</a></p>
+            {% else %}
+                <p class="pull-right"><a href="{{SITE_URL}}/students/login/">[Login]</a></p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block sidebar-navigation %}
+    <div class="well sidebar-nav">
+	    <ul class="nav nav-list">
+			<li class="nav-header"><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+			<li><a href="#">Link</a></li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block body %}
+    {% if user.get_profile.profile_not_set %}
+    <div class="errors">
+        <p>Certain <i>New</i> fields which are required in you profile have not been updated.
+        To stop seeing this message please update your <a href="{{SITE_URL}}/profile/">Profile</a>.
+        Check all your profile details and presss submit.</p>
+        <p>The new details are Gender,Age,Branch and College Id/RollNumber.Also note that in case 
+        you do not possess a mobile phone,please provide a suitable contact number</p>
+        <p>The inconvenience is regretted</p>
+    </div>
+    {% endif %}
+{% endblock %}

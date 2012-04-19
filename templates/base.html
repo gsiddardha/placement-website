@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{{SITE_NAME}}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{{ title }}</title>
+        <link rel="stylesheet" href="{{MEDIA_URL}}/css/bootstrap.css" type="text/css" />
+        <link href="{{MEDIA_URL}}/css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="icon" href="{{MEDIA_URL}}/images/favicon.ico" type="image/x-icon" />
+        <link rel="top" title="{{SITE_NAME}}" href="{{SITE_URL}}" />
+        <style>
+	       body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+            }
+           .sidebar-nav {
+            padding: 9px 0;
+            }
+	    </style>
+    </head>
+    <body>
+        <div class="topbar">
+            {% block topbar %}
+            {% endblock %}
+		</div>
+		
+		<div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    {% block sidebar-navigation %}
+                    {% endblock %}
+                </div>
+	            <div class="span10">
+	                {% block body %}
+	                {% endblock %}
+                </div>            
+            </div>
+
+	        <footer>        
+		        <p class="pull-right">
+		          <a href="#">Back to Top</a>
+		        </p>
+		        <p>Designed and built by Siddardha Garimella</p>
+		        <p>(c)IIT Madras Training and Placement Office</p>
+            </footer>
+        </div>
+        
+        <!-- Script placed at end so that they load faster -->
+        <script src="{{MEDIA_URL}}/js/bootstrap-dropdown.js" type="text/javascript" />
+  </body>
+</html>

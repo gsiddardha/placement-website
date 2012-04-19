@@ -1,0 +1,42 @@
+{% extends "base_default.html" %}
+
+{% block body %}
+    {% if redirected %}
+    <div class="register">
+        <b>You must login first.</b>
+    </div>
+    {% endif %}
+
+    {% if registered %}
+    <div class="register">
+        Thank you for registering. You may login now.
+    </div>
+    {% endif %}
+    
+    <div class="register">
+    <h1>Login</h1>
+    <p>Creating an account at the Shaastra User Portal allows you to interact
+    with other particpants, and the coordinators of the Shaastra Events. You
+    also can pre-register for certain events, and for hospitality service at a
+    later date. </p>
+    <p><a href="{{SITE_URL}}/students/register">Register Now</a></p>
+    </div>
+
+    <div class="register">
+        <h2> Already have an account? </h2>
+        <form action="{{SITE_URL}}/students/login/" method="POST">
+            <table name="login">
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Login" />
+            {% if invalid_login %}
+            <br>
+            <div class="errors">
+		        Invalid username or password. Please try again.
+		    </div>
+		    {% endif %}
+        </form>
+        <p><a href="{{SITE_URL}}/students/forgot">Forgot your password?</a> </p>
+    </div>
+
+{% endblock %}
