@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import patterns
+from django.conf.urls.defaults import patterns, include
 
 handler404 = "userportal.misc.util.not_found"
 handler500 = "userportal.misc.util.server_error"
