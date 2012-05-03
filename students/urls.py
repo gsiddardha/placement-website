@@ -7,4 +7,5 @@ urlpatterns = patterns('placement.students.views',
                        (r'^register/$', 'register_student'),
                        (r'^login/$', 'login'),
                        (r'^logout/$', 'logout'),
+                       (r'^$', 'home')
 )

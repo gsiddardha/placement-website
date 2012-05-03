@@ -2,18 +2,18 @@
 
 {% block body %}
     {% if redirected %}
-    <div class="register">
+    <div class="alert">
         <b>You must login first.</b>
     </div>
     {% endif %}
 
     {% if registered %}
-    <div class="register">
+    <div class="alert alert-success">
         Thank you for registering. You may login now.
     </div>
     {% endif %}
     
-    <div class="register">
+    <div>
     <h1>Login</h1>
     <p>Creating an account at the Shaastra User Portal allows you to interact
     with other particpants, and the coordinators of the Shaastra Events. You
@@ -22,19 +22,33 @@
     <p><a href="{{SITE_URL}}/students/register">Register Now</a></p>
     </div>
 
-    <div class="register">
+    <div class="span5">
         <h2> Already have an account? </h2>
-        <form action="{{SITE_URL}}/students/login/" method="POST">
-            <table name="login">
-                {{ form.as_table }}
-            </table>
-            <input type="submit" value="Login" />
-            {% if invalid_login %}
-            <br>
-            <div class="alert alert-error">
-		        Invalid username or password. Please try again.
-		    </div>
-		    {% endif %}
+        <form action="{{SITE_URL}}/students/login/" method="POST" class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="id_username">Username</label>
+                    <div class="controls">
+                        {{ form.username }}
+                    </div>
+                </div>
+	            <div class="control-group">
+		            <label class="control-label" for="id_password">Password</label>
+		            <div class="controls">
+                        {{ form.password }}
+		            </div>
+	            </div>
+				<div class="form-actions">
+					<input type="submit" class="btn btn-primary" value="Login" />
+				</div>
+				
+	            {% if invalid_login %}
+	            <br>
+	            <div class="alert alert-error">
+			        Invalid username or password. Please try again.
+			    </div>
+			    {% endif %}
+            </fieldset>
         </form>
         <p><a href="{{SITE_URL}}/students/forgot">Forgot your password?</a> </p>
     </div>

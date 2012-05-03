@@ -23,8 +23,17 @@
 			    </ul>
 	
 			    {% if user.is_authenticated %}
-			        <p class="pull-right">Logged in as <a href="{{SITE_URL}}/students/profile/">{{user.username}}</a>.
-			        <a href="{{SITE_URL}}/students/logout/">[Logout]</a></p>
+			        <div class="btn-group pull-right">
+                        <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i>{{user.username}}</a>
+                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+                            <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+                            <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{SITE_URL}}/students/logout/"><i class="i"></i>Logout</a></li>
+                        </ul>
+                    </div>
 			    {% else %}
 			        <p class="pull-right"><a href="{{SITE_URL}}/students/login/">[Login]</a></p>
 			    {% endif %}
