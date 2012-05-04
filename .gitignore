@@ -5,3 +5,5 @@
 *.pot
 local_settings.py
 settings.py
+.settings/*
+.*project*
