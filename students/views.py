@@ -52,7 +52,7 @@ def register_student(request):
     else: 
         form = forms.RegisterUserForm()
 
-    return render_to_response('registration/register_student.html', locals(), context_instance = global_context(request))
+        return render_to_response('registration/register_student.html', locals(), context_instance = global_context(request))
 
 @no_login
 def login(request):

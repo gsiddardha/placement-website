@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    (r'^admin/', include('placement.admin')),
-    (r'^students/', include('placement.students.urls')),
-    (r'^company/', include('placement.companies.urls')),
+    (r'^admin/', include('django.contrib.admin')),
+    (r'^students/', include('placement-website.students.urls')),
+    (r'^company/', include('placement-website.companies.urls')),
 )
